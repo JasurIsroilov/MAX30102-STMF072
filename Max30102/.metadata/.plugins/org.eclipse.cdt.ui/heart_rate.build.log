@@ -1,0 +1,10 @@
+10:42:32 **** Incremental Build of configuration Debug for project heart_rate ****
+make -j8 all 
+arm-none-eabi-size   heart_rate.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25344	     20	   2220	  27584	   6bc0	heart_rate.elf
+Finished building: default.size.stdout
+ 
+
+10:42:32 Build Finished. 0 errors, 0 warnings. (took 300ms)
+

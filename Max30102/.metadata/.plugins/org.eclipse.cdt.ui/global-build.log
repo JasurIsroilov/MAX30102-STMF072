@@ -1,0 +1,49 @@
+10:42:25 **** Incremental Build of configuration Debug for project heart_rate ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:330:46: warning: passing argument 2 of 'HAL_UART_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  330 |                HAL_UART_Transmit_IT(&huart2, heartReat, 1);
+      |                                              ^~~~~~~~~
+      |                                              |
+      |                                              uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:288,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h:1493:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+ 1493 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c:333:43: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  333 |                HAL_UART_Transmit(&huart2, "Put your finger on\r\n", 20, -1);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:288,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h:1491:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+ 1491 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "heart_rate.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\STM32 IDE\Max30102\heart_rate\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="heart_rate.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: heart_rate.elf
+ 
+arm-none-eabi-objdump -h -S  heart_rate.elf  > "heart_rate.list"
+arm-none-eabi-objcopy  -O binary  heart_rate.elf  "heart_rate.bin"
+arm-none-eabi-size   heart_rate.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25344	     20	   2220	  27584	   6bc0	heart_rate.elf
+Finished building: default.size.stdout
+ 
+Finished building: heart_rate.bin
+ 
+Finished building: heart_rate.list
+ 
+10:42:32 **** Incremental Build of configuration Debug for project heart_rate ****
+make -j8 all 
+arm-none-eabi-size   heart_rate.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25344	     20	   2220	  27584	   6bc0	heart_rate.elf
+Finished building: default.size.stdout
+ 

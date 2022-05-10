@@ -1,0 +1,17 @@
+main.c:91:6:max30102_init	32	static
+main.c:122:9:max30102_getUnreadSampleCount	32	static
+main.c:133:6:max30102_getFIFO	72	static
+main.c:147:9:max30102_getStatus	32	static
+main.c:172:6:filter	32	static
+main.c:186:6:buffInsert	32	static
+main.c:199:6:calAcDc	48	static
+main.c:227:6:max30102_cal	72	static
+main.c:272:9:max30102_getHeartRate	8	static
+main.c:273:9:max30102_getSpO2	8	static
+main.c:274:9:max30102_getDiff	8	static
+main.c:281:5:main	24	static
+main.c:343:6:SystemClock_Config	112	static
+main.c:386:13:MX_I2C1_Init	8	static
+main.c:432:13:MX_USART2_UART_Init	8	static
+main.c:467:13:MX_GPIO_Init	48	static
+main.c:502:6:Error_Handler	8	static,ignoring_inline_asm
